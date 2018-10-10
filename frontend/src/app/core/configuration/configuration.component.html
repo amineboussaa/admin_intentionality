@@ -1,0 +1,79 @@
+<div class="container" style="margin-left: 50px;" >
+  <form *ngIf="configuration ; else loading" (ngSubmit)="onSave()">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">maxInactivityPeriod</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.maxInactivityPeriod" name="maxInactivityPeriod">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="automaticSavingPeriod" class="col-sm-3 col-form-label">automaticSavingPeriod</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.automaticSavingPeriod" name="automaticSavingPeriod">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maxDataStorage" class="col-sm-3 col-form-label">maxDataStorage</label>
+      <div class="col-sm-1">
+        <input type="text" class="form-control" name="maxDataStorage" [(ngModel)]="configuration.maxDataStorage">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.maxInactivityPeriod" class="col-sm-3 col-form-label">maxNameLenght</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.maxNameLenght" name="maxNameLenght">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.maxInactivityPeriod" class="col-sm-3 col-form-label">extractionstartperiod</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.extractionstartperiod" name="extractionstartperiod">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.maxInactivityPeriod" class="col-sm-3 col-form-label">minTotalPost</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.minTotalPost" name="minTotalPost">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.maxInactivityPeriod" class="col-sm-3 col-form-label">minAvgModelThreshold</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.minAvgModelThreshold" name="minAvgModelThreshold">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.maxInactivityPeriod" class="col-sm-3 col-form-label">maxAvgModelThreshold</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.maxAvgModelThreshold" name="maxAvgModelThreshold">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.maxInactivityPeriod" class="col-sm-3 col-form-label">maxNbWordInCloud</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.maxNbWordInCloud" name="maxNbWordInCloud">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.maxInactivityPeriod" class="col-sm-3 col-form-label">maxNbWordInThemeCloud</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.maxNbWordInThemeCloud" name="maxNbWordInThemeCloud">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.SearchResultNbPost" class="col-sm-3 col-form-label">SearchResultNbPost</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.SearchResultNbPost" name="SearchResultNbPost">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="configuration.MaxSearchResultNbPost" class="col-sm-3 col-form-label">MaxSearchResultNbPost</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="text" [(ngModel)]="configuration.MaxSearchResultNbPost" name="MaxSearchResultNbPost">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="onSave()">Modifier</button>
+    <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+  </form>
+</div>

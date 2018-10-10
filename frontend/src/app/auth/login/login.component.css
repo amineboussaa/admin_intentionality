@@ -1,0 +1,6 @@
+.col-centered {
+  display:inline-block;
+  float:left;
+  left:33%;
+  margin-top: 80px;
+}

@@ -1,0 +1,99 @@
+<div class=”container”>
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Login</th>
+        <th>Email</th>
+        <th>Telephone</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.login }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.telephone }}</td>
+        <td>
+          <div *ngIf="user.isActif == 0; then non_actif else actif"></div>
+          <ng-template #non_actif>
+            <button type="button" class="btn btn-primary" (click)="onDeactivate(i)" >Activate</button>
+          </ng-template>
+          <ng-template #actif>
+            <button type="button" class="btn btn-danger" (click)="onDeactivate(i)">Deactivate</button>
+          </ng-template>
+        </td>
+        <td>
+          <button type="button" class="btn btn-info" (click)="onEdit(i)">Edit</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">New</button>
+    </div>
+  </div>
+  <br>
+</div>
+
+
+<div class="container" *ngIf="showNew">
+  <form (ngSubmit)="onSave()">
+
+    <div class="form-group row">
+      <label for="name-input" class="col-2 col-form-label">Name</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="user.name" name="Name">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="login-input" class="col-2 col-form-label">Login</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="user.login" name="login">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email-input" class="col-2 col-form-label">Email</label>
+      <div class="col-10">
+        <input class="form-control" type="email" [(ngModel)]="user.email" name="email">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="example-password-input" class="col-2 col-form-label">Password</label>
+      <div class="col-10">
+        <input class="form-control" type="password" [(ngModel)]="user.password" name="password">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="telephone-input" class="col-2 col-form-label">Telephone</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="user.telephone" name="telephone">
+      </div>
+    </div>
+    <div class="form-group row">
+    <div *ngIf="user.isActif == 0; then non_actif else actif"></div>
+    <ng-template #non_actif>
+      <button type="button" class="btn btn-primary" (click)="onDeactivateuser()" >Activate</button>
+    </ng-template>
+    <ng-template #actif>
+      <button type="button" class="btn btn-danger" (click)="onDeactivateuser()">Deactivate</button>
+    </ng-template>
+    </div>
+
+    <button type="submit" class="btn btn-success">{{submitType}}</button>
+    <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+
+
+  </form>
+</div>
